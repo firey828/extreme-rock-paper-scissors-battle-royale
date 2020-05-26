@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class GameMethods {
 
-    // instance variables
+    // INSTANCE VARIABLES
     private int roundWins;
     private int roundLosses;
     private int roundTies;
@@ -12,7 +12,7 @@ public class GameMethods {
     private int points;
     private String luckyMove;
 
-    // constructor
+    // ======== CONSTRUCTOR ========
     public GameMethods() {
         roundWins = 0;
         roundLosses = 0;
@@ -22,6 +22,9 @@ public class GameMethods {
         luckyMove = "PLACEHOLDER";
     }
 
+    /*
+     * This method starts and displays the result of a game with two human players.
+     */
     public void pvp() {
         int oneWins = 0;
         int oneLosses = 0;
@@ -79,9 +82,20 @@ public class GameMethods {
         }
     }
 
+    /*
+     * This method displays a JOptionPane message.
+     */
     public void msg(String message) {
         JOptionPane.showMessageDialog(null, message);
     }
+
+    /*
+     * This method takes a String of input from the user using JOptionPane.showInputDialog.
+     * If at any prompt the user wishes to exit or view their stats rather than provide the
+     * requested input, the method will act accordingly, and, in the latter case, will use
+     * recursion to re-prompt the user for a new response. The String inputted by the user
+     * at the latest prompt in the method will be returned.
+     */
 
     public String in(String message) {
         String response = JOptionPane.showInputDialog(message);
@@ -103,7 +117,7 @@ public class GameMethods {
     }
 
     /*
-    Returns a randomly-generated move of type ROCK, PAPER, or SCISSORS
+     * Returns a randomly-generated move of type ROCK, PAPER, or SCISSORS
      */
     public Move randomComputerMove() {
         int randomChoice = (int) (Math.random() * 3);
@@ -120,8 +134,8 @@ public class GameMethods {
     }
 
     /*
-    Returns false if the kind of move specified is not one of the three valid
-    kinds (ROCK, PAPER, or SCISSORS), true otherwise.
+     * Returns false if the String specified is not one of the three valid kinds
+     * (ROCK, PAPER, or SCISSORS), false otherwise.
      */
     public boolean isInvalidKind(String kind) {
         if (kind.equalsIgnoreCase("ROCK")) {
@@ -136,9 +150,9 @@ public class GameMethods {
     }
 
     /*
-    This method starts a Story Mode game.
-    Minimum Points: 0
-    Maximum Points: 75
+     * This method starts a Story Mode game.
+     * Minimum Points: 0
+     * Maximum Points: 75
      */
     public void playGame() {
         String name = in("Before we begin, please tell me what your name is.");
